@@ -494,7 +494,7 @@ class Workflow(BaseWorkflow):
                 "server": server,
                 "folder": folder,
                 "format": "json",
-                ##"useArrayFormat": "true"
+                "use_array_format": "true"
             }
 
             # Query the deployed folders and jobs
