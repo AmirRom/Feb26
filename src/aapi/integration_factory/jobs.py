@@ -109,28 +109,6 @@ class JobAwsDynamoDB(Job):
 
 
 @attrs.define
-class JobGCPDeploymentManager(Job):
-
-    _type: str = attrs.field(init=False, default='Job:GCP Deployment Manager', metadata={
-                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:GCP Deployment Manager'})
-    object_name: str = attrs.field(metadata={'_aapi_name_': True})
-    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
-                                          '_aapi_repr_': 'ConnectionProfile'})
-    project_id: str = attrs.field(kw_only=True, default=None, metadata={
-                                  '_aapi_repr_': 'Project ID'})
-    action: str = attrs.field(kw_only=True, default=None, metadata={
-                              '_aapi_repr_': 'Action'})
-    deployment_name: str = attrs.field(kw_only=True, default=None, metadata={
-                                       '_aapi_repr_': 'Deployment Name'})
-    yaml_config_content: str = attrs.field(kw_only=True, default=None, metadata={
-                                           '_aapi_repr_': 'Yaml Config Content'})
-    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
-                                                '_aapi_repr_': 'Status Polling Frequency'})
-    failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
-                                         '_aapi_repr_': 'Failure Tolerance'})
-
-
-@attrs.define
 class JobAzureDevOps(Job):
 
     _type: str = attrs.field(init=False, default='Job:Azure DevOps', metadata={
@@ -154,6 +132,28 @@ class JobAzureDevOps(Job):
                                       '_aapi_repr_': 'Stages To Skip'})
     show_build_logs: str = attrs.field(kw_only=True, default=None, metadata={
                                        '_aapi_repr_': 'Show Build Logs'})
+    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
+                                                '_aapi_repr_': 'Status Polling Frequency'})
+    failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
+                                         '_aapi_repr_': 'Failure Tolerance'})
+
+
+@attrs.define
+class JobGCPDeploymentManager(Job):
+
+    _type: str = attrs.field(init=False, default='Job:GCP Deployment Manager', metadata={
+                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:GCP Deployment Manager'})
+    object_name: str = attrs.field(metadata={'_aapi_name_': True})
+    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'ConnectionProfile'})
+    project_id: str = attrs.field(kw_only=True, default=None, metadata={
+                                  '_aapi_repr_': 'Project ID'})
+    action: str = attrs.field(kw_only=True, default=None, metadata={
+                              '_aapi_repr_': 'Action'})
+    deployment_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                       '_aapi_repr_': 'Deployment Name'})
+    yaml_config_content: str = attrs.field(kw_only=True, default=None, metadata={
+                                           '_aapi_repr_': 'Yaml Config Content'})
     status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
                                                 '_aapi_repr_': 'Status Polling Frequency'})
     failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
@@ -363,30 +363,6 @@ class JobGCPDataFusion(Job):
 
 
 @attrs.define
-class JobUIPath(Job):
-
-    _type: str = attrs.field(init=False, default='Job:UI Path', metadata={
-                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:UI Path'})
-    object_name: str = attrs.field(metadata={'_aapi_name_': True})
-    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
-                                          '_aapi_repr_': 'ConnectionProfile'})
-    folder_name: str = attrs.field(kw_only=True, default=None, metadata={
-                                   '_aapi_repr_': 'Folder Name'})
-    folder_id: str = attrs.field(kw_only=True, default=None, metadata={
-                                 '_aapi_repr_': 'Folder Id'})
-    process_name: str = attrs.field(kw_only=True, default=None, metadata={
-                                    '_aapi_repr_': 'Process Name'})
-    robot_name: str = attrs.field(kw_only=True, default=None, metadata={
-                                  '_aapi_repr_': 'Robot Name'})
-    robot_id: str = attrs.field(kw_only=True, default=None, metadata={
-                                '_aapi_repr_': 'Robot Id'})
-    optional_input_parameters: str = attrs.field(kw_only=True, default=None, metadata={
-                                                 '_aapi_repr_': 'Optional Input Parameters'})
-    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
-                                                '_aapi_repr_': 'Status Polling Frequency'})
-
-
-@attrs.define
 class JobDatadog(Job):
 
     _type: str = attrs.field(init=False, default='Job:Datadog', metadata={
@@ -416,6 +392,32 @@ class JobDatadog(Job):
                                                 '_aapi_repr_': 'Status Polling Frequency'})
     failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
                                          '_aapi_repr_': 'Failure Tolerance'})
+
+
+@attrs.define
+class JobUIPath(Job):
+
+    _type: str = attrs.field(init=False, default='Job:UI Path', metadata={
+                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:UI Path'})
+    object_name: str = attrs.field(metadata={'_aapi_name_': True})
+    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'ConnectionProfile'})
+    folder_type: str = attrs.field(kw_only=True, default=None, metadata={
+                                   '_aapi_repr_': 'Folder Type'})
+    folder_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                   '_aapi_repr_': 'Folder Name'})
+    folder_id: str = attrs.field(kw_only=True, default=None, metadata={
+                                 '_aapi_repr_': 'Folder Id'})
+    process_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                    '_aapi_repr_': 'Process Name'})
+    robot_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                  '_aapi_repr_': 'Robot Name'})
+    robot_id: str = attrs.field(kw_only=True, default=None, metadata={
+                                '_aapi_repr_': 'Robot Id'})
+    optional_input_parameters: str = attrs.field(kw_only=True, default=None, metadata={
+                                                 '_aapi_repr_': 'Optional Input Parameters'})
+    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
+                                                '_aapi_repr_': 'Status Polling Frequency'})
 
 
 @attrs.define
@@ -481,7 +483,7 @@ class JobApacheAirflow(Job):
     json: str = attrs.field(kw_only=True, default=None,
                             metadata={'_aapi_repr_': 'JSON'})
     switch_to_rerun: str = attrs.field(kw_only=True, default=None, metadata={
-                                       '_aapi_repr_': 'Switch To Rerun'})
+                                       '_aapi_repr_': 'Switch to Rerun'})
     keep_run_id: str = attrs.field(kw_only=True, default=None, metadata={
                                    '_aapi_repr_': 'Keep Run ID'})
     status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
@@ -520,6 +522,34 @@ class JobAwsCloudFormation(Job):
                                                 '_aapi_repr_': 'Status Polling Frequency'})
     failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
                                          '_aapi_repr_': 'Failure Tolerance'})
+
+
+@attrs.define
+class JobAzureFunctions(Job):
+
+    _type: str = attrs.field(init=False, default='Job:Azure Functions', metadata={
+                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:Azure Functions'})
+    object_name: str = attrs.field(metadata={'_aapi_name_': True})
+    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'ConnectionProfile'})
+    function_app: str = attrs.field(kw_only=True, default=None, metadata={
+                                    '_aapi_repr_': 'Function App'})
+    azure_resource: str = attrs.field(kw_only=True, default=None, metadata={
+                                      '_aapi_repr_': 'Azure Resource'})
+    azure_resource_scope: str = attrs.field(kw_only=True, default=None, metadata={
+                                            '_aapi_repr_': 'Azure Resource Scope'})
+    function_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                     '_aapi_repr_': 'Function Name'})
+    optional_input_parameters: str = attrs.field(kw_only=True, default=None, metadata={
+                                                 '_aapi_repr_': 'Optional Input Parameters'})
+    function_type: str = attrs.field(kw_only=True, default=None, metadata={
+                                     '_aapi_repr_': 'Function Type'})
+    verification_poll_intervall: str = attrs.field(kw_only=True, default=None, metadata={
+                                                   '_aapi_repr_': 'Verification Poll Intervall'})
+    failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
+                                         '_aapi_repr_': 'Failure Tolerance'})
+    api_v_e_r_s_i_o_n: str = attrs.field(kw_only=True, default=None, metadata={
+                                           '_aapi_repr_': 'API-VERSION'})
 
 
 @attrs.define
@@ -589,34 +619,6 @@ class JobAwsAppFlow(Job):
 
 
 @attrs.define
-class JobAzureFunctions(Job):
-
-    _type: str = attrs.field(init=False, default='Job:Azure Functions', metadata={
-                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:Azure Functions'})
-    object_name: str = attrs.field(metadata={'_aapi_name_': True})
-    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
-                                          '_aapi_repr_': 'ConnectionProfile'})
-    function_app: str = attrs.field(kw_only=True, default=None, metadata={
-                                    '_aapi_repr_': 'Function App'})
-    azure_resource: str = attrs.field(kw_only=True, default=None, metadata={
-                                      '_aapi_repr_': 'Azure Resource'})
-    azure_resource_scope: str = attrs.field(kw_only=True, default=None, metadata={
-                                            '_aapi_repr_': 'Azure Resource Scope'})
-    function_name: str = attrs.field(kw_only=True, default=None, metadata={
-                                     '_aapi_repr_': 'Function Name'})
-    optional_input_parameters: str = attrs.field(kw_only=True, default=None, metadata={
-                                                 '_aapi_repr_': 'Optional Input Parameters'})
-    function_type: str = attrs.field(kw_only=True, default=None, metadata={
-                                     '_aapi_repr_': 'Function Type'})
-    verification_poll_intervall: str = attrs.field(kw_only=True, default=None, metadata={
-                                                   '_aapi_repr_': 'Verification Poll Intervall'})
-    failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
-                                         '_aapi_repr_': 'Failure Tolerance'})
-    api_v_e_r_s_i_o_n: str = attrs.field(kw_only=True, default=None, metadata={
-                                           '_aapi_repr_': 'API-VERSION'})
-
-
-@attrs.define
 class JobAwsEMR(Job):
 
     _type: str = attrs.field(init=False, default='Job:AWS EMR', metadata={
@@ -662,36 +664,6 @@ class JobTableau(Job):
                                                 '_aapi_repr_': 'Status Polling Frequency'})
     failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
                                          '_aapi_repr_': 'Failure Tolerance'})
-
-
-@attrs.define
-class JobAzureVM(Job):
-
-    _type: str = attrs.field(init=False, default='Job:Azure VM', metadata={
-                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:Azure VM'})
-    object_name: str = attrs.field(metadata={'_aapi_name_': True})
-    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
-                                          '_aapi_repr_': 'ConnectionProfile'})
-    vm_name: str = attrs.field(kw_only=True, default=None, metadata={
-                                '_aapi_repr_': 'VM Name'})
-    operation: str = attrs.field(kw_only=True, default=None, metadata={
-                                 '_aapi_repr_': 'Operation'})
-    tag_name: str = attrs.field(kw_only=True, default=None, metadata={
-                                '_aapi_repr_': 'Tag Name'})
-    tag_value: str = attrs.field(kw_only=True, default=None, metadata={
-                                 '_aapi_repr_': 'Tag Value'})
-    input_parameters: str = attrs.field(kw_only=True, default=None, metadata={
-                                        '_aapi_repr_': 'Input Parameters'})
-    verification_poll_interval: str = attrs.field(kw_only=True, default=None, metadata={
-                                                  '_aapi_repr_': 'Verification Poll Interval'})
-    delete_vm_os_disk: str = attrs.field(kw_only=True, default=None, metadata={
-                                           '_aapi_repr_': 'Delete VM OS Disk'})
-    tolerance: str = attrs.field(kw_only=True, default=None, metadata={
-                                 '_aapi_repr_': 'Tolerance'})
-    api_v_e_r_s_i_o_n: str = attrs.field(kw_only=True, default=None, metadata={
-                                           '_aapi_repr_': 'API-VERSION'})
-    get_logs: str = attrs.field(kw_only=True, default=None, metadata={
-                                '_aapi_repr_': 'Get Logs'})
 
 
 @attrs.define
@@ -744,6 +716,36 @@ class JobGCPComposer(Job):
                                                 '_aapi_repr_': 'Status Polling Frequency'})
     failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
                                          '_aapi_repr_': 'Failure Tolerance'})
+
+
+@attrs.define
+class JobAzureVM(Job):
+
+    _type: str = attrs.field(init=False, default='Job:Azure VM', metadata={
+                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:Azure VM'})
+    object_name: str = attrs.field(metadata={'_aapi_name_': True})
+    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'ConnectionProfile'})
+    vm_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                '_aapi_repr_': 'VM Name'})
+    operation: str = attrs.field(kw_only=True, default=None, metadata={
+                                 '_aapi_repr_': 'Operation'})
+    tag_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                '_aapi_repr_': 'Tag Name'})
+    tag_value: str = attrs.field(kw_only=True, default=None, metadata={
+                                 '_aapi_repr_': 'Tag Value'})
+    input_parameters: str = attrs.field(kw_only=True, default=None, metadata={
+                                        '_aapi_repr_': 'Input Parameters'})
+    verification_poll_interval: str = attrs.field(kw_only=True, default=None, metadata={
+                                                  '_aapi_repr_': 'Verification Poll Interval'})
+    delete_vm_os_disk: str = attrs.field(kw_only=True, default=None, metadata={
+                                           '_aapi_repr_': 'Delete VM OS Disk'})
+    tolerance: str = attrs.field(kw_only=True, default=None, metadata={
+                                 '_aapi_repr_': 'Tolerance'})
+    api_v_e_r_s_i_o_n: str = attrs.field(kw_only=True, default=None, metadata={
+                                           '_aapi_repr_': 'API-VERSION'})
+    get_logs: str = attrs.field(kw_only=True, default=None, metadata={
+                                '_aapi_repr_': 'Get Logs'})
 
 
 @attrs.define
@@ -873,32 +875,6 @@ class JobGCPDataflow(Job):
 
 
 @attrs.define
-class JobAwsMWAA(Job):
-
-    _type: str = attrs.field(init=False, default='Job:AWS MWAA', metadata={
-                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:AWS MWAA'})
-    object_name: str = attrs.field(metadata={'_aapi_name_': True})
-    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
-                                          '_aapi_repr_': 'ConnectionProfile'})
-    action: str = attrs.field(kw_only=True, default=None, metadata={
-                              '_aapi_repr_': 'Action'})
-    m_w_a_a_environment_name: str = attrs.field(kw_only=True, default=None, metadata={
-                                                '_aapi_repr_': 'MWAA Environment Name'})
-    d_a_g_name: str = attrs.field(kw_only=True, default=None, metadata={
-                                  '_aapi_repr_': 'DAG Name'})
-    d_a_g_run_id: str = attrs.field(kw_only=True, default=None, metadata={
-                                    '_aapi_repr_': 'DAG Run ID'})
-    parameters: str = attrs.field(kw_only=True, default=None, metadata={
-                                  '_aapi_repr_': 'Parameters'})
-    only_failed: str = attrs.field(kw_only=True, default=None, metadata={
-                                   '_aapi_repr_': 'Only Failed'})
-    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
-                                                '_aapi_repr_': 'Status Polling Frequency'})
-    failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
-                                         '_aapi_repr_': 'Failure Tolerance'})
-
-
-@attrs.define
 class JobAwsBedrock(Job):
 
     _type: str = attrs.field(init=False, default='Job:AWS Bedrock', metadata={
@@ -922,6 +898,32 @@ class JobAwsBedrock(Job):
                                              '_aapi_repr_': 'Show Execution Events'})
     event_type_presentation: str = attrs.field(kw_only=True, default=None, metadata={
                                                '_aapi_repr_': 'Event Type Presentation'})
+    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
+                                                '_aapi_repr_': 'Status Polling Frequency'})
+    failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
+                                         '_aapi_repr_': 'Failure Tolerance'})
+
+
+@attrs.define
+class JobAwsMWAA(Job):
+
+    _type: str = attrs.field(init=False, default='Job:AWS MWAA', metadata={
+                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:AWS MWAA'})
+    object_name: str = attrs.field(metadata={'_aapi_name_': True})
+    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'ConnectionProfile'})
+    action: str = attrs.field(kw_only=True, default=None, metadata={
+                              '_aapi_repr_': 'Action'})
+    m_w_a_a_environment_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                                '_aapi_repr_': 'MWAA Environment Name'})
+    d_a_g_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                  '_aapi_repr_': 'DAG Name'})
+    d_a_g_run_id: str = attrs.field(kw_only=True, default=None, metadata={
+                                    '_aapi_repr_': 'DAG Run ID'})
+    parameters: str = attrs.field(kw_only=True, default=None, metadata={
+                                  '_aapi_repr_': 'Parameters'})
+    only_failed: str = attrs.field(kw_only=True, default=None, metadata={
+                                   '_aapi_repr_': 'Only Failed'})
     status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
                                                 '_aapi_repr_': 'Status Polling Frequency'})
     failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
@@ -1064,6 +1066,8 @@ class JobVMwareByBroadcom(Job):
                                   '_aapi_repr_': 'Datacenter'})
     cluster: str = attrs.field(kw_only=True, default=None, metadata={
                                '_aapi_repr_': 'Cluster'})
+    template_library_item_id: str = attrs.field(kw_only=True, default=None, metadata={
+                                                '_aapi_repr_': 'Template Library Item ID'})
     parameters: str = attrs.field(kw_only=True, default=None, metadata={
                                   '_aapi_repr_': 'Parameters'})
     placement_json: str = attrs.field(kw_only=True, default=None, metadata={
@@ -1078,8 +1082,6 @@ class JobVMwareByBroadcom(Job):
                                         '_aapi_repr_': 'Cores Per Socket'})
     size_in_mi_b: str = attrs.field(kw_only=True, default=None, metadata={
                                     '_aapi_repr_': 'Size In MiB'})
-    template_library_item_id: str = attrs.field(kw_only=True, default=None, metadata={
-                                                '_aapi_repr_': 'Template Library Item ID'})
     snapshot_name: str = attrs.field(kw_only=True, default=None, metadata={
                                      '_aapi_repr_': 'Snapshot Name'})
     snapshot_description: str = attrs.field(kw_only=True, default=None, metadata={
@@ -1090,6 +1092,8 @@ class JobVMwareByBroadcom(Job):
                                '_aapi_repr_': 'Quiesce'})
     snapshot_id: str = attrs.field(kw_only=True, default=None, metadata={
                                    '_aapi_repr_': 'Snapshot ID'})
+    vm_mo_id: str = attrs.field(kw_only=True, default=None, metadata={
+                                 '_aapi_repr_': 'VM MoId'})
     release_schema: str = attrs.field(kw_only=True, default=None, metadata={
                                       '_aapi_repr_': 'Release Schema'})
     status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
@@ -1441,32 +1445,6 @@ class JobAutomationAnywhere(Job):
 
 
 @attrs.define
-class JobRabbitMQ(Job):
-
-    _type: str = attrs.field(init=False, default='Job:RabbitMQ', metadata={
-                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:RabbitMQ'})
-    object_name: str = attrs.field(metadata={'_aapi_name_': True})
-    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
-                                          '_aapi_repr_': 'ConnectionProfile'})
-    action: str = attrs.field(kw_only=True, default=None, metadata={
-                              '_aapi_repr_': 'Action'})
-    vhost: str = attrs.field(kw_only=True, default=None, metadata={
-                             '_aapi_repr_': 'Vhost'})
-    exchange: str = attrs.field(kw_only=True, default=None, metadata={
-                                '_aapi_repr_': 'Exchange'})
-    routing_key: str = attrs.field(kw_only=True, default=None, metadata={
-                                   '_aapi_repr_': 'Routing Key'})
-    message_to_publish: str = attrs.field(kw_only=True, default=None, metadata={
-                                          '_aapi_repr_': 'Message to Publish'})
-    message_encoding: str = attrs.field(kw_only=True, default=None, metadata={
-                                        '_aapi_repr_': 'Message Encoding'})
-    properties: str = attrs.field(kw_only=True, default=None, metadata={
-                                  '_aapi_repr_': 'Properties'})
-    queue: str = attrs.field(kw_only=True, default=None, metadata={
-                             '_aapi_repr_': 'Queue'})
-
-
-@attrs.define
 class JobJenkins(Job):
 
     _type: str = attrs.field(init=False, default='Job:Jenkins', metadata={
@@ -1490,6 +1468,32 @@ class JobJenkins(Job):
                                                 '_aapi_repr_': 'Status Polling Frequency'})
     failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
                                          '_aapi_repr_': 'Failure Tolerance'})
+
+
+@attrs.define
+class JobRabbitMQ(Job):
+
+    _type: str = attrs.field(init=False, default='Job:RabbitMQ', metadata={
+                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:RabbitMQ'})
+    object_name: str = attrs.field(metadata={'_aapi_name_': True})
+    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'ConnectionProfile'})
+    action: str = attrs.field(kw_only=True, default=None, metadata={
+                              '_aapi_repr_': 'Action'})
+    vhost: str = attrs.field(kw_only=True, default=None, metadata={
+                             '_aapi_repr_': 'Vhost'})
+    exchange: str = attrs.field(kw_only=True, default=None, metadata={
+                                '_aapi_repr_': 'Exchange'})
+    routing_key: str = attrs.field(kw_only=True, default=None, metadata={
+                                   '_aapi_repr_': 'Routing Key'})
+    message_to_publish: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'Message to Publish'})
+    message_encoding: str = attrs.field(kw_only=True, default=None, metadata={
+                                        '_aapi_repr_': 'Message Encoding'})
+    properties: str = attrs.field(kw_only=True, default=None, metadata={
+                                  '_aapi_repr_': 'Properties'})
+    queue: str = attrs.field(kw_only=True, default=None, metadata={
+                             '_aapi_repr_': 'Queue'})
 
 
 @attrs.define
@@ -1575,32 +1579,6 @@ class JobVeeamBackup(Job):
 
 
 @attrs.define
-class JobMicrosoftPowerBI(Job):
-
-    _type: str = attrs.field(init=False, default='Job:Microsoft Power BI', metadata={
-                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:Microsoft Power BI'})
-    object_name: str = attrs.field(metadata={'_aapi_name_': True})
-    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
-                                          '_aapi_repr_': 'ConnectionProfile'})
-    dataset_refresh_pipeline_deployment: str = attrs.field(kw_only=True, default=None, metadata={
-                                                           '_aapi_repr_': 'Dataset Refresh/ Pipeline Deployment'})
-    workspace_name: str = attrs.field(kw_only=True, default=None, metadata={
-                                      '_aapi_repr_': 'Workspace Name'})
-    workspace_id: str = attrs.field(kw_only=True, default=None, metadata={
-                                    '_aapi_repr_': 'Workspace ID'})
-    dataset_id: str = attrs.field(kw_only=True, default=None, metadata={
-                                  '_aapi_repr_': 'Dataset ID'})
-    parameters: str = attrs.field(kw_only=True, default=None, metadata={
-                                  '_aapi_repr_': 'Parameters'})
-    connection_timeout: str = attrs.field(kw_only=True, default=None, metadata={
-                                          '_aapi_repr_': 'Connection Timeout'})
-    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
-                                                '_aapi_repr_': 'Status Polling Frequency'})
-    pipeline_id: str = attrs.field(kw_only=True, default=None, metadata={
-                                   '_aapi_repr_': 'Pipeline ID'})
-
-
-@attrs.define
 class JobAzureBackup(Job):
 
     _type: str = attrs.field(init=False, default='Job:Azure Backup', metadata={
@@ -1636,6 +1614,32 @@ class JobAzureBackup(Job):
                                                 '_aapi_repr_': 'Status Polling Frequency'})
     failure_tolerance_: str = attrs.field(kw_only=True, default=None, metadata={
                                           '_aapi_repr_': 'Failure Tolerance '})
+
+
+@attrs.define
+class JobMicrosoftPowerBI(Job):
+
+    _type: str = attrs.field(init=False, default='Job:Microsoft Power BI', metadata={
+                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:Microsoft Power BI'})
+    object_name: str = attrs.field(metadata={'_aapi_name_': True})
+    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'ConnectionProfile'})
+    dataset_refresh_pipeline_deployment: str = attrs.field(kw_only=True, default=None, metadata={
+                                                           '_aapi_repr_': 'Dataset Refresh/ Pipeline Deployment'})
+    workspace_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                      '_aapi_repr_': 'Workspace Name'})
+    workspace_id: str = attrs.field(kw_only=True, default=None, metadata={
+                                    '_aapi_repr_': 'Workspace ID'})
+    dataset_id: str = attrs.field(kw_only=True, default=None, metadata={
+                                  '_aapi_repr_': 'Dataset ID'})
+    parameters: str = attrs.field(kw_only=True, default=None, metadata={
+                                  '_aapi_repr_': 'Parameters'})
+    connection_timeout: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'Connection Timeout'})
+    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
+                                                '_aapi_repr_': 'Status Polling Frequency'})
+    pipeline_id: str = attrs.field(kw_only=True, default=None, metadata={
+                                   '_aapi_repr_': 'Pipeline ID'})
 
 
 @attrs.define
@@ -2407,40 +2411,6 @@ class JobAlteryxTrifacta(Job):
 
 
 @attrs.define
-class JobIBMDataStageWindows(Job):
-
-    _type: str = attrs.field(init=False, default='Job:IBM DataStage Windows', metadata={
-                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:IBM DataStage Windows'})
-    object_name: str = attrs.field(metadata={'_aapi_name_': True})
-    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
-                                          '_aapi_repr_': 'ConnectionProfile'})
-    project: str = attrs.field(kw_only=True, default=None, metadata={
-                               '_aapi_repr_': 'Project'})
-    datastage_job: str = attrs.field(kw_only=True, default=None, metadata={
-                                     '_aapi_repr_': 'Datastage Job'})
-    job_invocation_id__optional: str = attrs.field(kw_only=True, default=None, metadata={
-                                                   '_aapi_repr_': 'Job Invocation ID (Optional)'})
-    parameters_type: str = attrs.field(kw_only=True, default=None, metadata={
-                                       '_aapi_repr_': 'Parameters Type'})
-    parameters: str = attrs.field(kw_only=True, default=None, metadata={
-                                  '_aapi_repr_': 'Parameters'})
-    parameter_file: str = attrs.field(kw_only=True, default=None, metadata={
-                                      '_aapi_repr_': 'Parameter File'})
-    stop_stages_after_number_of_rows: str = attrs.field(kw_only=True, default=None, metadata={
-                                                        '_aapi_repr_': 'Stop Stages After Number Of Rows'})
-    abort_job_after_number_of_warnings: str = attrs.field(kw_only=True, default=None, metadata={
-                                                          '_aapi_repr_': 'Abort Job After Number Of Warnings'})
-    append_log_to_output: str = attrs.field(kw_only=True, default=None, metadata={
-                                            '_aapi_repr_': 'Append Log To Output'})
-    run_in_restart_mode: str = attrs.field(kw_only=True, default=None, metadata={
-                                           '_aapi_repr_': 'Run In Restart Mode'})
-    reset_job_before_run: str = attrs.field(kw_only=True, default=None, metadata={
-                                            '_aapi_repr_': 'Reset Job Before Run'})
-    empty1: str = attrs.field(kw_only=True, default=None, metadata={
-                              '_aapi_repr_': 'Empty1'})
-
-
-@attrs.define
 class JobSnowflakeIdP(Job):
 
     _type: str = attrs.field(init=False, default='Job:Snowflake IdP', metadata={
@@ -2526,6 +2496,40 @@ class JobSnowflakeIdP(Job):
                                              '_aapi_repr_': 'Polling Interval (Sec)'})
     failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
                                          '_aapi_repr_': 'Failure Tolerance'})
+
+
+@attrs.define
+class JobIBMDataStageWindows(Job):
+
+    _type: str = attrs.field(init=False, default='Job:IBM DataStage Windows', metadata={
+                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:IBM DataStage Windows'})
+    object_name: str = attrs.field(metadata={'_aapi_name_': True})
+    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'ConnectionProfile'})
+    project: str = attrs.field(kw_only=True, default=None, metadata={
+                               '_aapi_repr_': 'Project'})
+    datastage_job: str = attrs.field(kw_only=True, default=None, metadata={
+                                     '_aapi_repr_': 'Datastage Job'})
+    job_invocation_id__optional: str = attrs.field(kw_only=True, default=None, metadata={
+                                                   '_aapi_repr_': 'Job Invocation ID (Optional)'})
+    parameters_type: str = attrs.field(kw_only=True, default=None, metadata={
+                                       '_aapi_repr_': 'Parameters Type'})
+    parameters: str = attrs.field(kw_only=True, default=None, metadata={
+                                  '_aapi_repr_': 'Parameters'})
+    parameter_file: str = attrs.field(kw_only=True, default=None, metadata={
+                                      '_aapi_repr_': 'Parameter File'})
+    stop_stages_after_number_of_rows: str = attrs.field(kw_only=True, default=None, metadata={
+                                                        '_aapi_repr_': 'Stop Stages After Number Of Rows'})
+    abort_job_after_number_of_warnings: str = attrs.field(kw_only=True, default=None, metadata={
+                                                          '_aapi_repr_': 'Abort Job After Number Of Warnings'})
+    append_log_to_output: str = attrs.field(kw_only=True, default=None, metadata={
+                                            '_aapi_repr_': 'Append Log To Output'})
+    run_in_restart_mode: str = attrs.field(kw_only=True, default=None, metadata={
+                                           '_aapi_repr_': 'Run In Restart Mode'})
+    reset_job_before_run: str = attrs.field(kw_only=True, default=None, metadata={
+                                            '_aapi_repr_': 'Reset Job Before Run'})
+    empty1: str = attrs.field(kw_only=True, default=None, metadata={
+                              '_aapi_repr_': 'Empty1'})
 
 
 @attrs.define
@@ -2634,28 +2638,6 @@ class JobDatabricks(Job):
 
 
 @attrs.define
-class JobDBT(Job):
-
-    _type: str = attrs.field(init=False, default='Job:DBT', metadata={
-                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:DBT'})
-    object_name: str = attrs.field(metadata={'_aapi_name_': True})
-    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
-                                          '_aapi_repr_': 'ConnectionProfile'})
-    dbt_job_id: str = attrs.field(kw_only=True, default=None, metadata={
-                                    '_aapi_repr_': 'DBT Job Id'})
-    run_comment: str = attrs.field(kw_only=True, default=None, metadata={
-                                   '_aapi_repr_': 'Run Comment'})
-    override_job_commands: str = attrs.field(kw_only=True, default=None, metadata={
-                                             '_aapi_repr_': 'Override Job Commands'})
-    define_commands: str = attrs.field(kw_only=True, default=None, metadata={
-                                       '_aapi_repr_': 'Define Commands'})
-    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
-                                                '_aapi_repr_': 'Status Polling Frequency'})
-    failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
-                                         '_aapi_repr_': 'Failure Tolerance'})
-
-
-@attrs.define
 class JobAwsAthena(Job):
 
     _type: str = attrs.field(init=False, default='Job:AWS Athena', metadata={
@@ -2704,23 +2686,21 @@ class JobAwsAthena(Job):
 
 
 @attrs.define
-class JobFivetran(Job):
+class JobDBT(Job):
 
-    _type: str = attrs.field(init=False, default='Job:Fivetran', metadata={
-                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:Fivetran'})
+    _type: str = attrs.field(init=False, default='Job:DBT', metadata={
+                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:DBT'})
     object_name: str = attrs.field(metadata={'_aapi_name_': True})
     connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
                                           '_aapi_repr_': 'ConnectionProfile'})
-    job_type: str = attrs.field(kw_only=True, default=None, metadata={
-                                '_aapi_repr_': 'Job Type'})
-    connection_id: str = attrs.field(kw_only=True, default=None, metadata={
-                                     '_aapi_repr_': 'Connection ID'})
-    connection_name: str = attrs.field(kw_only=True, default=None, metadata={
-                                       '_aapi_repr_': 'Connection Name'})
-    force_incremental_sync: str = attrs.field(kw_only=True, default=None, metadata={
-                                              '_aapi_repr_': 'Force Incremental Sync'})
-    transformation_id: str = attrs.field(kw_only=True, default=None, metadata={
-                                         '_aapi_repr_': 'Transformation ID'})
+    dbt_job_id: str = attrs.field(kw_only=True, default=None, metadata={
+                                    '_aapi_repr_': 'DBT Job Id'})
+    run_comment: str = attrs.field(kw_only=True, default=None, metadata={
+                                   '_aapi_repr_': 'Run Comment'})
+    override_job_commands: str = attrs.field(kw_only=True, default=None, metadata={
+                                             '_aapi_repr_': 'Override Job Commands'})
+    define_commands: str = attrs.field(kw_only=True, default=None, metadata={
+                                       '_aapi_repr_': 'Define Commands'})
     status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
                                                 '_aapi_repr_': 'Status Polling Frequency'})
     failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
@@ -2742,6 +2722,30 @@ class JobAzureServiceBus(Job):
                                       '_aapi_repr_': 'Message Format'})
     message_body: str = attrs.field(kw_only=True, default=None, metadata={
                                     '_aapi_repr_': 'Message Body'})
+
+
+@attrs.define
+class JobFivetran(Job):
+
+    _type: str = attrs.field(init=False, default='Job:Fivetran', metadata={
+                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:Fivetran'})
+    object_name: str = attrs.field(metadata={'_aapi_name_': True})
+    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'ConnectionProfile'})
+    job_type: str = attrs.field(kw_only=True, default=None, metadata={
+                                '_aapi_repr_': 'Job Type'})
+    connection_id: str = attrs.field(kw_only=True, default=None, metadata={
+                                     '_aapi_repr_': 'Connection ID'})
+    connection_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                       '_aapi_repr_': 'Connection Name'})
+    force_incremental_sync: str = attrs.field(kw_only=True, default=None, metadata={
+                                              '_aapi_repr_': 'Force Incremental Sync'})
+    transformation_id: str = attrs.field(kw_only=True, default=None, metadata={
+                                         '_aapi_repr_': 'Transformation ID'})
+    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
+                                                '_aapi_repr_': 'Status Polling Frequency'})
+    failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
+                                         '_aapi_repr_': 'Failure Tolerance'})
 
 
 @attrs.define
@@ -2997,6 +3001,34 @@ class JobMicroFocusLinux(Job):
 
 
 @attrs.define
+class JobCrewAI(Job):
+
+    _type: str = attrs.field(init=False, default='Job:CrewAI', metadata={
+                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:CrewAI'})
+    object_name: str = attrs.field(metadata={'_aapi_name_': True})
+    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'ConnectionProfile'})
+    crew_inputs: str = attrs.field(kw_only=True, default=None, metadata={
+                                   '_aapi_repr_': 'Crew Inputs'})
+    additional_parameters_: str = attrs.field(kw_only=True, default=None, metadata={
+                                              '_aapi_repr_': 'Additional Parameters  '})
+    training_file_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'Training File Name'})
+    generate_artifact: str = attrs.field(kw_only=True, default=None, metadata={
+                                         '_aapi_repr_': 'Generate Artifact'})
+    task_webhook_url: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'Task Webhook URL'})
+    step_webhook_url: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'Step Webhook URL'})
+    crew_webhook_url: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'Crew Webhook URL'})
+    failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
+                                         '_aapi_repr_': 'Failure Tolerance'})
+    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
+                                                '_aapi_repr_': 'Status Polling Frequency'})
+
+
+@attrs.define
 class JobAzureResourceManager(Job):
 
     _type: str = attrs.field(init=False, default='Job:Azure Resource Manager', metadata={
@@ -3104,36 +3136,6 @@ class JobTerraform(Job):
 
 
 @attrs.define
-class JobGCPFunctions(Job):
-
-    _type: str = attrs.field(init=False, default='Job:GCP Functions', metadata={
-                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:GCP Functions'})
-    object_name: str = attrs.field(metadata={'_aapi_name_': True})
-    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
-                                          '_aapi_repr_': 'ConnectionProfile'})
-    project_id: str = attrs.field(kw_only=True, default=None, metadata={
-                                  '_aapi_repr_': 'Project ID'})
-    location: str = attrs.field(kw_only=True, default=None, metadata={
-                                '_aapi_repr_': 'Location'})
-    function_name: str = attrs.field(kw_only=True, default=None, metadata={
-                                     '_aapi_repr_': 'Function Name'})
-    function_parameters: str = attrs.field(kw_only=True, default=None, metadata={
-                                           '_aapi_repr_': 'Function Parameters'})
-    url_parameters: str = attrs.field(kw_only=True, default=None, metadata={
-                                        '_aapi_repr_': 'URL Parameters'})
-    body: str = attrs.field(kw_only=True, default=None,
-                            metadata={'_aapi_repr_': 'Body'})
-    api_version: str = attrs.field(kw_only=True, default=None, metadata={
-                                     '_aapi_repr_': 'API Version'})
-    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
-                                                '_aapi_repr_': 'Status Polling Frequency'})
-    failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
-                                         '_aapi_repr_': 'Failure Tolerance'})
-    get_logs: str = attrs.field(kw_only=True, default=None, metadata={
-                                '_aapi_repr_': 'Get Logs'})
-
-
-@attrs.define
 class JobAtlassianBitbucket(Job):
 
     _type: str = attrs.field(init=False, default='Job:Atlassian Bitbucket', metadata={
@@ -3208,6 +3210,36 @@ class JobAtlassianBitbucket(Job):
 
 
 @attrs.define
+class JobGCPFunctions(Job):
+
+    _type: str = attrs.field(init=False, default='Job:GCP Functions', metadata={
+                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:GCP Functions'})
+    object_name: str = attrs.field(metadata={'_aapi_name_': True})
+    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'ConnectionProfile'})
+    project_id: str = attrs.field(kw_only=True, default=None, metadata={
+                                  '_aapi_repr_': 'Project ID'})
+    location: str = attrs.field(kw_only=True, default=None, metadata={
+                                '_aapi_repr_': 'Location'})
+    function_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                     '_aapi_repr_': 'Function Name'})
+    function_parameters: str = attrs.field(kw_only=True, default=None, metadata={
+                                           '_aapi_repr_': 'Function Parameters'})
+    url_parameters: str = attrs.field(kw_only=True, default=None, metadata={
+                                        '_aapi_repr_': 'URL Parameters'})
+    body: str = attrs.field(kw_only=True, default=None,
+                            metadata={'_aapi_repr_': 'Body'})
+    api_version: str = attrs.field(kw_only=True, default=None, metadata={
+                                     '_aapi_repr_': 'API Version'})
+    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
+                                                '_aapi_repr_': 'Status Polling Frequency'})
+    failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
+                                         '_aapi_repr_': 'Failure Tolerance'})
+    get_logs: str = attrs.field(kw_only=True, default=None, metadata={
+                                '_aapi_repr_': 'Get Logs'})
+
+
+@attrs.define
 class JobAzureLogicApps(Job):
 
     _type: str = attrs.field(init=False, default='Job:Azure Logic Apps', metadata={
@@ -3278,32 +3310,6 @@ class JobOCIVM(Job):
 
 
 @attrs.define
-class JobOCIDataIntegration(Job):
-
-    _type: str = attrs.field(init=False, default='Job:OCI Data Integration', metadata={
-                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:OCI Data Integration'})
-    object_name: str = attrs.field(metadata={'_aapi_name_': True})
-    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
-                                          '_aapi_repr_': 'ConnectionProfile'})
-    actions: str = attrs.field(kw_only=True, default=None, metadata={
-                               '_aapi_repr_': 'Actions'})
-    workspace_ocid: str = attrs.field(kw_only=True, default=None, metadata={
-                                        '_aapi_repr_': 'Workspace OCID'})
-    application_key: str = attrs.field(kw_only=True, default=None, metadata={
-                                       '_aapi_repr_': 'Application Key'})
-    task_key: str = attrs.field(kw_only=True, default=None, metadata={
-                                '_aapi_repr_': 'Task Key'})
-    task_run_name: str = attrs.field(kw_only=True, default=None, metadata={
-                                     '_aapi_repr_': 'Task Run Name'})
-    task_run_input_parameters: str = attrs.field(kw_only=True, default=None, metadata={
-                                                 '_aapi_repr_': 'Task Run Input Parameters'})
-    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
-                                                '_aapi_repr_': 'Status Polling Frequency'})
-    failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
-                                         '_aapi_repr_': 'Failure Tolerance'})
-
-
-@attrs.define
 class JobAwsDataPipeline(Job):
 
     _type: str = attrs.field(init=False, default='Job:AWS Data Pipeline', metadata={
@@ -3323,6 +3329,32 @@ class JobAwsDataPipeline(Job):
                                   '_aapi_repr_': 'Parameters'})
     trigger_created_pipeline: str = attrs.field(kw_only=True, default=None, metadata={
                                                 '_aapi_repr_': 'Trigger Created Pipeline'})
+    status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
+                                                '_aapi_repr_': 'Status Polling Frequency'})
+    failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
+                                         '_aapi_repr_': 'Failure Tolerance'})
+
+
+@attrs.define
+class JobOCIDataIntegration(Job):
+
+    _type: str = attrs.field(init=False, default='Job:OCI Data Integration', metadata={
+                             '_aapi_repr_': 'Type', '_type_aapi_': 'Job:OCI Data Integration'})
+    object_name: str = attrs.field(metadata={'_aapi_name_': True})
+    connection_profile: str = attrs.field(kw_only=True, default=None, metadata={
+                                          '_aapi_repr_': 'ConnectionProfile'})
+    actions: str = attrs.field(kw_only=True, default=None, metadata={
+                               '_aapi_repr_': 'Actions'})
+    workspace_ocid: str = attrs.field(kw_only=True, default=None, metadata={
+                                        '_aapi_repr_': 'Workspace OCID'})
+    application_key: str = attrs.field(kw_only=True, default=None, metadata={
+                                       '_aapi_repr_': 'Application Key'})
+    task_key: str = attrs.field(kw_only=True, default=None, metadata={
+                                '_aapi_repr_': 'Task Key'})
+    task_run_name: str = attrs.field(kw_only=True, default=None, metadata={
+                                     '_aapi_repr_': 'Task Run Name'})
+    task_run_input_parameters: str = attrs.field(kw_only=True, default=None, metadata={
+                                                 '_aapi_repr_': 'Task Run Input Parameters'})
     status_polling_frequency: str = attrs.field(kw_only=True, default=None, metadata={
                                                 '_aapi_repr_': 'Status Polling Frequency'})
     failure_tolerance: str = attrs.field(kw_only=True, default=None, metadata={
